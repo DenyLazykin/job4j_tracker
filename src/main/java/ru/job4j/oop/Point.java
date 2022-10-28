@@ -3,6 +3,9 @@ package ru.job4j.oop;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
+/**
+ * Класс описывает точку, в системе координат
+ */
 public class Point {
     private int x;
     private int y;
@@ -12,6 +15,11 @@ public class Point {
         this.y = second;
     }
 
+    /**
+     * Метод вычисляет расстояние по точкам
+     * @param that принимает переменную Point
+     * @return результат вычислений
+     */
     public double distance(Point that) {
         return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
     }
