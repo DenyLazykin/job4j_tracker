@@ -1,15 +1,19 @@
-package ru.job4j.oop;
+package ru.job4j.max;
 
 public class Reduce {
     private int[] array;
 
+    /**
+     * Записывает аргумент массива в поле класса
+     * @param array массив значений
+     */
     public void to(int[] array) {
-        array = array;
+        this.array = array;
     }
 
     public void print() {
-        for (int index = 0; index < array.length; index++) {
-            System.out.println(array[index]);
+        for (int i : array) {
+            System.out.println(i);
         }
     }
 
