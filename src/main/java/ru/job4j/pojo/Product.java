@@ -1,5 +1,8 @@
 package ru.job4j.pojo;
 
+/**
+ * Описывает модель данных для продуктов
+ */
 public class Product {
     private String name;
     private int count;
