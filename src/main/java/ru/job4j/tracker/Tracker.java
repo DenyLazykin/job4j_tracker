@@ -54,14 +54,39 @@ public class Tracker {
      * @return null - если заявка не найдена.
      */
     public Item findById(int id) {
-        Item rsl = null;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    /**
+     * Метод для возврата index по id
+     * @param id номер заявки
+     * @return -1 если index не найден
+     */
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
+    }
+
+    /**
+     * Для замены заявки
+     * @param id номер заявки
+     * @param item на что меняем
+     * @return замененную заяку
+     */
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        boolean validate = index != -1;
+        if (validate) {
+            items[index] = item;
+            item.setId(id);
+        }
+        return validate;
     }
 }
