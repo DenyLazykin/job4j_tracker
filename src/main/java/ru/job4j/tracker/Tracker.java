@@ -32,6 +32,7 @@ public class Tracker {
      * Проверяет в цикле все элементы массива items,
      * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
      * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
+     *
      * @param key название, которое необходимо найти
      * @return результат поиска
      */
@@ -50,6 +51,7 @@ public class Tracker {
 
     /**
      * Проверяет в цикле все элементы массива items, сравнивая id с аргументом int id
+     *
      * @param id номер заявки
      * @return null - если заявка не найдена.
      */
@@ -60,6 +62,7 @@ public class Tracker {
 
     /**
      * Метод для возврата index по id
+     *
      * @param id номер заявки
      * @return -1 если index не найден
      */
@@ -76,7 +79,8 @@ public class Tracker {
 
     /**
      * Для замены заявки
-     * @param id номер заявки
+     *
+     * @param id   номер заявки
      * @param item на что меняем
      * @return замененную заяку
      */
@@ -99,17 +103,18 @@ public class Tracker {
      * dist - массив, куда вставить скопированные элементы от source.
      * Этот метод может работать с одним массивом для source и dist.
      * distPos - начиная с какого элемента вставлять скопированные ячейки.
+     *
      * @param id номер удаляемой заявки
      * @return false усли удалить не получилось
      */
     public boolean delete(int id) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean validate = index != -1;
+        if (validate) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
             items[size - 1] = null;
             size--;
-            return true;
         }
-        return false;
+        return validate;
     }
 }
