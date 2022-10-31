@@ -89,4 +89,27 @@ public class Tracker {
         }
         return validate;
     }
+
+    /**
+     * Удаляет заявку с помощь метода System.arraycopy,
+     * который копирует блоки массива целеком
+     * System.arraycopy(source, startPos, dist, distPos, length);
+     * source - массив откуда нужно скопировать элементы начиная с позиции startPos и до позиции startPos + length.
+     * length - сколько элементов взять начиная от startPos.
+     * dist - массив, куда вставить скопированные элементы от source.
+     * Этот метод может работать с одним массивом для source и dist.
+     * distPos - начиная с какого элемента вставлять скопированные ячейки.
+     * @param id номер удаляемой заявки
+     * @return false усли удалить не получилось
+     */
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size - 1] = null;
+            size--;
+            return true;
+        }
+        return false;
+    }
 }
