@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Scanner;
 
 /**
- * Нужен для реализации интерфейса Input
+ * Реализация  ввода пользователем
  */
 public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
