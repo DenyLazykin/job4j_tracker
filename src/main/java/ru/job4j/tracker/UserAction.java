@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 /**
- * Действия, которые описывает действия, которые можно совершать
+ * Все действия, которые можно совершать
  */
 public interface UserAction {
     String name();
