@@ -31,7 +31,7 @@ public class StartUI {
      * Выводит на экран меню доступных пользовательских действий
      */
     private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
+        out.println("Menu:");
         for (int index = 0; index < actions.length; index++) {
             out.println(index + ". " + actions[index].name());
         }
