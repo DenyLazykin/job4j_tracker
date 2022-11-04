@@ -12,7 +12,7 @@ public class HandleError {
                 c = random.nextInt();
                 a = 12345 / (b / c);
             } catch (ArithmeticException e) {
-                System.out.println("Деление на 0");
+                System.out.println("Деление на 0 " + e);
                 a = 0;
             }
             System.out.println("a: " + a);
