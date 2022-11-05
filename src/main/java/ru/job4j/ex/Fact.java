@@ -8,12 +8,12 @@ public class Fact {
         int rsl = 1;
         for (int i = 2; i <= number; i++) {
             rsl *= i;
-            System.out.print(i + " ");
+            System.out.print(rsl + " ");
         }
         return rsl;
     }
 
     public static void main(String[] args) {
-        new Fact().calc(25);
+        new Fact().calc(15);
     }
 }
