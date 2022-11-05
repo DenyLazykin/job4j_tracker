@@ -57,7 +57,7 @@ public class StartUITest {
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -78,7 +78,7 @@ public class StartUITest {
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+                new String[]{"0", String.valueOf(one.getId()), replaceName, "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new EditItemAction(out),
@@ -105,7 +105,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
-                new String[] {"0", "1"}
+                new String[]{"0", "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new ShowAllAction(out),
@@ -132,7 +132,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(one.getId()), "1"}
+                new String[]{"0", String.valueOf(one.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByIdAction(out),
@@ -159,7 +159,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
-                new String[] {"0", one.getName(), "1"}
+                new String[]{"0", one.getName(), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByNameAction(out),
@@ -176,6 +176,28 @@ public class StartUITest {
                         + "Menu:" + ln
                         + "0. Find item by name" + ln
                         + "1. Exit Program" + ln
+                        + "=== Exit Program ===" + ln
+        );
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"9", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString()).isEqualTo(
+                "Menu:" + ln
+                        + "0. Exit Program" + ln
+                        + "Неправильный ввод, вы можете выбрать от 0 до 0" + ln
+                        + "Menu:" + ln
+                        + "0. Exit Program" + ln
                         + "=== Exit Program ===" + ln
         );
     }
