@@ -22,6 +22,10 @@ public class StartUI {
         while (run) {
             showMenu(actions);
             int select = input.askInt("Select: ");
+            if (select < 0 || select >= actions.length) {
+                out.println("Неправильный ввод, вы можете выбрать от 0 до " + (actions.length - 1));
+                continue;
+            }
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -39,7 +43,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput(output);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
@@ -48,7 +52,7 @@ public class StartUI {
                 new DeleteItemAction(output),
                 new FindByIdAction(output),
                 new FindByNameAction(output),
-                new ExitAction(output)
+                new ExitAction(output),
         };
         new StartUI(output).init(input, tracker, actions);
     }
