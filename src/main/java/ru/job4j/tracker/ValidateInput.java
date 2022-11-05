@@ -1,6 +1,11 @@
 package ru.job4j.tracker;
 
 public class ValidateInput extends ConsoleInput {
+    private final Output out;
+
+    public ValidateInput(Output out) {
+        this.out = out;
+    }
 
     @Override
     public int askInt(String question) {
@@ -11,7 +16,7 @@ public class ValidateInput extends ConsoleInput {
                 value = super.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("Пожалуйста, введите цифры, а не буквы");
+                out.println("Пожалуйста, введите цифры, а не буквы");
             }
         } while (invalid);
         return value;
