@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 /**
- * КОнсольный ввод
+ * Консольный ввод
  */
 public class ConsoleOutput implements Output {
     @Override
