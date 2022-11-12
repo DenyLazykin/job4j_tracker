@@ -17,7 +17,7 @@ public class CollectionUsage {
         for (String str : list) {
             System.out.println(list);
         }
-        collection.remove("two");
+        collection.removeAll(collection);
         System.out.println("Вывод содержимого после удаления");
         for (String str : collection) {
             System.out.println(str);
