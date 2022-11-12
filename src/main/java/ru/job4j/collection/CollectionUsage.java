@@ -13,11 +13,11 @@ public class CollectionUsage {
             System.out.println(str);
         }
         Collection<String> list = new ArrayList<>();
-        list.addAll(collection);
+        list.add("two");
         for (String str : list) {
             System.out.println(list);
         }
-        collection.removeAll(collection);
+        collection.retainAll(list);
         System.out.println("Вывод содержимого после удаления");
         for (String str : collection) {
             System.out.println(str);
