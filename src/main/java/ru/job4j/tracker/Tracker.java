@@ -1,14 +1,14 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Логика приложения
  */
 public class Tracker {
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     /**
      * Добавляет заявку, переданную в аргументах в массив заявок items
@@ -18,61 +18,59 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        items.add(item);
         return item;
     }
 
     /**
-     * Возвращает копию массива items без null элементов
+     * Осуществляет поиск всех созданных заявок
      *
-     * @return отредактированный масив
+     * @return Возвращает копию списка
      */
-    public Item[] findAll() {
-        return Arrays.copyOf(this.items, size);
+    public List<Item> findAll() {
+        return List.copyOf(items);
     }
 
     /**
-     * Проверяет в цикле все элементы массива items,
-     * сравнивая name (используя метод getName класса Item) с аргументом метода String key.
-     * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
+     * Осуществляет поиск заявок по имени.
+     * Проверяет в цикле все элементы списка.
+     * Элементы у которых name - совпадают - добавляет в список
      *
-     * @param key название, которое необходимо найти
+     * @param name Название, которое необходимо найти
      * @return результат поиска
      */
-    public Item[] findByName(String key) {
-        Item[] rsl = new Item[size];
-        int i = 0;
-        for (int index = 0; index < size; index++) {
-            if (key.equals(this.items[index].getName())) {
-                rsl[i] = this.items[index];
-                i++;
+    public List<Item> findByName(String name) {
+        List<Item> rsl = new ArrayList<>();
+        for (Item item : items) {
+            if (name.equals(item.getName())) {
+                rsl.add(item);
             }
         }
-        rsl = Arrays.copyOf(rsl, i);
         return rsl;
     }
 
     /**
-     * Проверяет в цикле все элементы массива items, сравнивая id с аргументом int id
+     * Осуществляет поиск заяки по id при помощи метода indexOf(int id);
+     * В цикле проверяет все элементы списка items сравнивая полученный id с id из аргумента методда
      *
      * @param id номер заявки
      * @return null - если заявка не найдена.
      */
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
     /**
      * Метод для возврата index по id
      *
-     * @param id номер заявки
+     * @param id Номер заявки
      * @return -1 если index не найден
      */
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
@@ -83,40 +81,31 @@ public class Tracker {
     /**
      * Для замены заявки
      *
-     * @param id   номер заявки
-     * @param item на что меняем
-     * @return замененную заяку
+     * @param id   Номер заявки
+     * @param item На что меняем
+     * @return Замененную заяку
      */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean validate = index != -1;
         if (validate) {
-            items[index] = item;
+            items.set(index, item);
             item.setId(id);
         }
         return validate;
     }
 
     /**
-     * Удаляет заявку с помощь метода System.arraycopy,
-     * который копирует блоки массива целеком
-     * System.arraycopy(source, startPos, dist, distPos, length);
-     * source - массив откуда нужно скопировать элементы начиная с позиции startPos и до позиции startPos + length.
-     * length - сколько элементов взять начиная от startPos.
-     * dist - массив, куда вставить скопированные элементы от source.
-     * Этот метод может работать с одним массивом для source и dist.
-     * distPos - начиная с какого элемента вставлять скопированные ячейки.
+     * Удаляет заявку
      *
-     * @param id номер удаляемой заявки
+     * @param id Номер удаляемой заявки
      * @return false усли удалить не получилось
      */
     public boolean delete(int id) {
         int index = indexOf(id);
         boolean validate = index != -1;
         if (validate) {
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items[size - 1] = null;
-            size--;
+            items.remove(index);
         }
         return validate;
     }
