@@ -14,7 +14,7 @@ public class UniqueText {
      * Для проверки уникальности текста
      *
      * @param originText    Оригинальный текст
-     * @param duplicateText Проверяемый
+     * @param duplicateText Проверяемый текст
      * @return False - если текст не уникальный
      */
     public boolean isEquals(String originText, String duplicateText) {
