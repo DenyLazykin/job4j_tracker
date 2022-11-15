@@ -9,8 +9,8 @@ public class FullSearch {
      * В цикле для перебора используем list.
      * В теле добавляем номер вызванный на элементе листа к HashSet
      *
-     * @param list список задач
-     * @return номера задач без дублей
+     * @param list Список задач
+     * @return Номера задач без дублей
      */
     public HashSet<String> extractNumber(List<Task> list) {
         HashSet<String> numbers = new HashSet<>();
