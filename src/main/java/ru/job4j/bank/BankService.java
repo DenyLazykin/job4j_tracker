@@ -15,18 +15,24 @@ public class BankService {
     /**
      * Добавляет пользователя в систему
      * putIfAbsent - добавляет пару в мапу, если ее там нет
+     *
      * @param user Пользователя
      */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
+    /**
+     * Удаляет пользователя из системы
+     *
+     * @param passport Паспорт
+     * @return True - если пользователь удален
+     */
     public boolean deleteUser(String passport) {
-        boolean result = false;
-        return result;
+        return users.remove(new User(passport, null)) != null;
     }
 
-    public  void addAccount(String passport, Account account) {
+    public void addAccount(String passport, Account account) {
 
     }
 
