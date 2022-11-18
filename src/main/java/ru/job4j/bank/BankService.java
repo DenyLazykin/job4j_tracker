@@ -93,6 +93,12 @@ public class BankService {
         return result;
     }
 
+    /**
+     * Метод позволяет получить список счетов пользователя
+     *
+     * @param user - информация о пользователе.
+     * @return - возвращает список счетов, которые есть у пользователя.
+     */
     public List<Account> getAccounts(User user) {
         return users.get(user);
     }
