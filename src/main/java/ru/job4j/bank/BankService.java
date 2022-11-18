@@ -68,13 +68,28 @@ public class BankService {
         return result;
     }
 
+    /**
+     * Ищет пользователя по реквизитам
+     * Вначале ищем пользователя по паспорту с помощью метода findByPassport
+     * Затем получаем список счетов этого пользователя и в нем находим нужный счет
+     * Перед тем, как получить список аакаунтов проверяем, что бы findByPassport вернул отличное от null значение
+     *
+     * @param passport  Паспорт
+     * @param requisite Реквизиты
+     * @return Null - если счет не найден
+     */
     public Account findByRequisite(String passport, String requisite) {
-        return null;
-    }
-
-    public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) {
-        boolean result = false;
+        Account result = null;
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            for (Account req : accounts) {
+                if (req.getRequisite().equals(requisite)) {
+                    result = req;
+                    break;
+                }
+            }
+        }
         return result;
     }
 
