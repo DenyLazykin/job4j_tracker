@@ -36,8 +36,21 @@ public class BankService {
 
     }
 
+    /**
+     * Осуществляет поиск пользователя по паспорту
+     *
+     * @param passport Паспорт
+     * @return Если пользователь не найден - возвращает null
+     */
     public User findByPassport(String passport) {
-
+        User result = null;
+        for (User user : users.keySet()) {
+            if (user.getPassport().equals(passport)) {
+                result = user;
+                break;
+            }
+        }
+        return result;
     }
 
     public Account findByRequisite(String passport, String requisite) {
