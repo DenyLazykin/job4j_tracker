@@ -94,6 +94,29 @@ public class BankService {
     }
 
     /**
+     * Для перевода денег с одного счета на другой
+     *
+     * @param srcPassport   Реквизиты паспорта пользователя с которого переводим
+     * @param srcRequisite  Реквизиты пользователя с которого переводим
+     * @param destPassport  Реквизиты паспорта пользователя на счет которого переводим
+     * @param destRequisite Реквизиты пользователя с которого переводим
+     * @param amount        Сумма
+     * @return False - если перевод не совершен
+     */
+    public boolean transferMoney(String srcPassport, String srcRequisite,
+                                 String destPassport, String destRequisite, double amount) {
+        boolean rsl = false;
+        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+        Account destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
+            srcAccount.setBalance(srcAccount.getBalance() - amount);
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            rsl = true;
+        }
+        return rsl;
+    }
+
+    /**
      * Метод позволяет получить список счетов пользователя
      *
      * @param user - информация о пользователе.
