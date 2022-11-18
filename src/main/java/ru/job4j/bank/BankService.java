@@ -32,8 +32,23 @@ public class BankService {
         return users.remove(new User(passport, null)) != null;
     }
 
+    /**
+     * Добавляет новый счет к пользователю
+     * Вначале ищем пользователя по паспорту с помощью метода findByPassport
+     * После того, как мы получили список всех счетов пользователя - добавляем к ним новый счет
+     * В методе есть проверка, что такого счета у пользователя нет
+     *
+     * @param passport Паспорт
+     * @param account  Счет
+     */
     public void addAccount(String passport, Account account) {
-
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+            }
+        }
     }
 
     /**
