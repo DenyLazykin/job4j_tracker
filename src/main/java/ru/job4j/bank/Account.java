@@ -7,9 +7,9 @@ import java.util.Objects;
  */
 public class Account {
     private String requisite;
-    private String balance;
+    private double balance;
 
-    public Account(String requisite, String balance) {
+    public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
@@ -22,11 +22,11 @@ public class Account {
         this.requisite = requisite;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
