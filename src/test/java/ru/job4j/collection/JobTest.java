@@ -8,14 +8,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class JobTest {
     @Test
-    public void whenComparatorByNameAndPriority() {
+    public void whenComparatorByNameAndPrority() {
         Comparator<Job> cmpNamePriority =
                 new JobDescByName().thenComparing(new JobDescByPriority());
-        int result = cmpNamePriority.compare(
+        int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
-                new Job("Impl task", 1)
+                new Job("Fix bug", 1)
         );
-        assertThat(result).isLessThan(0);
+        assertThat(rsl).isLessThan(0);
     }
 
     @Test
