@@ -1,5 +1,8 @@
 package ru.job4j.comparation;
 
+/**
+ * Модель данных
+ */
 public class Employee implements Comparable<Employee> {
     private int id;
     private String name;

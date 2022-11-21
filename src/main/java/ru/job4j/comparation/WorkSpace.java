@@ -16,6 +16,5 @@ public class WorkSpace {
         System.out.println("Before sort \n" + list);
         Collections.sort(list);
         System.out.println("After sort \n" + list);
-
     }
 }
