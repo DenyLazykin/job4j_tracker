@@ -21,5 +21,20 @@ public class ArrayListMethods {
         System.out.println();
         arrayList.remove(1);
         System.out.println(arrayList);
+        List<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("!!!");
+        arrayList1.add("???");
+        arrayList1.addAll(1, arrayList);
+        System.out.println(arrayList1);
+        arrayList1.clear();
+        System.out.println(arrayList1);
+        System.out.println(arrayList.indexOf("Ivan"));
+        System.out.println(arrayList1.indexOf("???"));
+        System.out.println(arrayList.lastIndexOf("Nasty"));
+        System.out.println(arrayList.size());
+        System.out.println(arrayList1.isEmpty());
+        System.out.println(arrayList.isEmpty());
+        System.out.println(arrayList.contains("Ivan"));
+        System.out.println(arrayList.contains("Den"));
     }
 }

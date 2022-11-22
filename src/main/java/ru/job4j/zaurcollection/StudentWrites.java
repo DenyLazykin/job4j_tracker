@@ -17,5 +17,7 @@ public class StudentWrites {
         System.out.println(studentList);
         studentList.remove(studentIvan2);
         System.out.println(studentList);
+        int index = studentList.indexOf(studentIvan2);
+        System.out.println(index);
     }
 }
