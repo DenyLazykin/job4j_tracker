@@ -2,14 +2,14 @@ package ru.job4j.zaurcollection;
 
 import java.util.Objects;
 
-public class Student {
+public class StudentArrayList {
     private String name;
     private String sex;
     private int age;
     private int course;
     private double avgGrade;
 
-    public Student(String name, String sex, int age, int course, double avgGrade) {
+    public StudentArrayList(String name, String sex, int age, int course, double avgGrade) {
         this.name = name;
         this.sex = sex;
         this.age = age;
@@ -56,7 +56,7 @@ public class Student {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Student student = (Student) o;
+        StudentArrayList student = (StudentArrayList) o;
         return age == student.age
                 && course == student.course
                 && Double.compare(student.avgGrade, avgGrade) == 0
