@@ -18,5 +18,8 @@ public class HashCodeExample {
         System.out.println("result = " + result);
         System.out.println(studentHashCodeDen.hashCode());
         System.out.println(studentHashCodeDen2.hashCode());
+        for (Map.Entry<StudentHashCode, Double> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 }
