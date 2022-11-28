@@ -26,4 +26,22 @@ public class Departments {
         }
         return new ArrayList<>(temp);
     }
+
+    /**
+     * Сортирует список строк по возрастанию
+     *
+     * @param orgs Список строк
+     */
+    public static void sortAsc(List<String> orgs) {
+        Collections.sort(orgs);
+    }
+
+    /**
+     * Сортирует список в соответствии с компаратором DepDescComp
+     *
+     * @param orgs Список строк
+     */
+    public static void sortDesc(List<String> orgs) {
+        orgs.sort(new DepDescComp());
+    }
 }
