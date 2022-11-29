@@ -18,7 +18,10 @@ public class FI {
                 "banana"
         };
         Comparator<Attachment> comparatorBySize =
-                (left, right) -> Integer.compare(left.getSize(), right.getSize());
+                (left, right) -> {
+            System.out.println("compare - " + left.getSize() + " : " + right.getSize());
+            return Integer.compare(left.getSize(), right.getSize());
+        };
         Arrays.sort(attachments, comparatorBySize);
         System.out.println("Sort by size:");
         for (Attachment attachment : attachments) {
