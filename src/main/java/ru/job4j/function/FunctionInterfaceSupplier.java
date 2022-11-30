@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Supplier;
 
-public class FunctionInterfaceUsage {
+public class FunctionInterfaceSupplier {
     public static void main(String[] args) {
         System.out.println("Создаем строку и выводим ее на экран:");
         Supplier<String> stringSupplier = () -> "New string for interface";
