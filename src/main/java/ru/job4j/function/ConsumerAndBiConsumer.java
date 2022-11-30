@@ -7,7 +7,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class FunctionInterfaceUsageConsumerAndBiConsumer {
+public class ConsumerAndBiConsumer {
     public static void main(String[] args) {
         Supplier<String> stringSupplier = () -> "New string for interface";
         System.out.println("Consumer demonstration:");
