@@ -3,6 +3,8 @@ package ru.job4j.zaurlambda;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
+import static ru.job4j.zaurlambda.StudentInfo.avgOfSomething;
+
 /**
  * Лямбда выражения служат для короткой записи ананимного класса
  * StudentInfo studentInfo = new StudentInfo();
@@ -46,6 +48,9 @@ public class StudentUsage {
         System.out.println();
         System.out.println("Negate method:");
         studentInfo.testStudents(students, predicateGrade.negate());
-
+        System.out.println();
+        System.out.println("Средняя оценка всех студентов :");
+        double rsl = avgOfSomething(students, s -> s.avgGrade);
+        System.out.println(rsl);
     }
 }
