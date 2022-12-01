@@ -1,6 +1,7 @@
 package ru.job4j.zaurlambda;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 /**
  * Лямбда выражения служат для короткой записи ананимного класса
@@ -35,5 +36,16 @@ public class StudentUsage {
         studentInfo.testStudents(students, student -> student.age > 20
                 && student.avgGrade < 9.3
                 && student.sex == 'f');
+        System.out.println();
+        System.out.println("Применяем predicate:");
+        Predicate<Student> predicateGrade = student -> student.avgGrade > 7.5;
+        Predicate<Student> predicateSex = student -> student.sex == 'f';
+        studentInfo.testStudents(students, predicateGrade.and(predicateSex));
+        System.out.println();
+        studentInfo.testStudents(students, predicateGrade.or(predicateSex));
+        System.out.println();
+        System.out.println("Negate method:");
+        studentInfo.testStudents(students, predicateGrade.negate());
+
     }
 }
