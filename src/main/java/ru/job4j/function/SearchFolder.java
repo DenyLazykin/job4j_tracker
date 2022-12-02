@@ -15,8 +15,7 @@ public class SearchFolder {
     public static List<Folder> filter(List<Folder> list, Predicate<Folder> folderPredicate) {
         List<Folder> result = new ArrayList<>();
         for (Folder folder : list) {
-            if (folder.getSize() > 100 || folder.getName().contains("bug")) {
-                folderPredicate.test(folder);
+            if (folderPredicate.test(folder)) {
                 result.add(folder);
             }
         }
