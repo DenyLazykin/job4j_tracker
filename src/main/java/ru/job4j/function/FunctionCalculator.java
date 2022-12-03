@@ -20,10 +20,4 @@ public class FunctionCalculator {
         }
         return list;
     }
-
-    public static void main(String[] args) {
-        FunctionCalculator functionCalculator = new FunctionCalculator();
-        List<Double> result = functionCalculator.diapason(5, 8, x -> Math.pow(3.13, x));
-        System.out.println(result);
-    }
 }
