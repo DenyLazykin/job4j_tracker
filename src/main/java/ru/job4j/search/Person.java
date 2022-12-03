@@ -1,7 +1,7 @@
 package ru.job4j.search;
 
 /**
- * Класс пользователь
+ * Модель данных пользователя
  */
 public class Person {
     private String name;
