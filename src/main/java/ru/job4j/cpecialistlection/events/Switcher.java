@@ -1,4 +1,4 @@
-package ru.job4j.cpecialistlection;
+package ru.job4j.cpecialistlection.events;
 
 import java.util.ArrayList;
 import java.util.List;

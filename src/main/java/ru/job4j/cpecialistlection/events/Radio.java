@@ -1,4 +1,4 @@
-package ru.job4j.cpecialistlection;
+package ru.job4j.cpecialistlection.events;
 
 /**
  * Класс моделирующий радио
