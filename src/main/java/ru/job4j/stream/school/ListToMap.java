@@ -9,7 +9,7 @@ public class ListToMap {
      * Принимает на вход List<Student> list и преобразует его в мапу
      *
      * @param list Список студентов
-     * @return Преобразованыый списаок в мапу
+     * @return Преобразованыый список в мапу
      */
     public static Map<String, Student> convert(List<Student> list) {
         return list.stream()
