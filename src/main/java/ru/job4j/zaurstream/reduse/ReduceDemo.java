@@ -15,7 +15,8 @@ public class ReduceDemo {
         list.add(2);
         list.add(4);
         list.add(3);
-        int result = list.stream()
+        int result = list
+                .stream()
                 .reduce((accumulator, element) ->
                         accumulator * element).get();
         System.out.println(result);
@@ -25,7 +26,8 @@ public class ReduceDemo {
         list1.add("how are u");
         list1.add("ok");
         list1.add("bye");
-        String result1 = list1.stream()
+        String result1 = list1
+                .stream()
                 .reduce((a, e) ->
                         a + " " + e).get();
         System.out.println(result1);

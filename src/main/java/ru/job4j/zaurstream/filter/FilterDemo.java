@@ -2,6 +2,7 @@ package ru.job4j.zaurstream.filter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Фильтрует элементы в соответствии с указанным условием
@@ -23,6 +24,12 @@ public class FilterDemo {
                 .filter(student ->
                         student.age() > 22
                                 && student.avgGrade() < 7.2)
+                .forEach(System.out::println);
+        System.out.println();
+        students.stream()
+                .sorted((left, right) ->
+                        left.name().compareTo(right.name()))
+                .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
 }
