@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamUsage {
     public static class Task {
@@ -24,5 +25,13 @@ public class StreamUsage {
                 .filter(task -> task.spent > 30)
                 .map(task -> task.name + " " + task.spent)
                 .forEach(System.out::println);
+        System.out.println(
+                List.of(1, 1, 2, 2).stream()
+                        .collect(Collectors.toMap(
+                                e -> e,
+                                e -> e * e,
+                                (existing, replacment) -> existing
+                        ))
+        );
     }
 }
