@@ -1,4 +1,4 @@
-package ru.job4j.stream.tour;
+package ru.job4j.stream.matrix;
 
 import java.util.List;
 import java.util.stream.Collectors;
