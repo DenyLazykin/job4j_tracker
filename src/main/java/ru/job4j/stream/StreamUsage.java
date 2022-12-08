@@ -30,7 +30,7 @@ public class StreamUsage {
                         .collect(Collectors.toMap(
                                 e -> e,
                                 e -> e * e,
-                                (existing, replacment) -> existing
+                                (existing, replacement) -> existing
                         ))
         );
     }
