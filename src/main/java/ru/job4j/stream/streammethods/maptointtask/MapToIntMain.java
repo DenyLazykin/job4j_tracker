@@ -1,4 +1,4 @@
-package ru.job4j.stream.streammethods.maptoint;
+package ru.job4j.stream.streammethods.maptointtask;
 
 import java.util.Arrays;
 import java.util.List;
