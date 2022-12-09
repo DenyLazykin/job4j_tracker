@@ -1,4 +1,4 @@
-package ru.job4j.stream.streammethods.maptoint;
+package ru.job4j.stream.streammethods;
 
 import java.util.List;
 import java.util.stream.Collectors;
