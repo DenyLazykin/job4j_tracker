@@ -25,10 +25,10 @@ public class PhoneDictionary {
         Predicate<Person> predicateSurnameName = surname -> surname.getSurname().contains(key);
         Predicate<Person> predicatePhone = phone -> phone.getPhone().contains(key);
         Predicate<Person> predicateAddress = address -> address.getAddress().contains(key);
-        Predicate<Person> combiePredicate =
+        var combiePredicate =
                 (predicateName.or(predicateSurnameName).or(predicateAddress).or(predicatePhone));
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : personArrayList) {
+        for (var person : personArrayList) {
             if (combiePredicate.test(person)) {
                 result.add(person);
             }
