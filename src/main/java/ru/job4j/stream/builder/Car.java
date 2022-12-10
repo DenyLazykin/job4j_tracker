@@ -82,7 +82,7 @@ class CarAccent {
         Car carAccent = new Car.Builder()
                 .buildBrand("Hyundai")
                 .buildModel("Accent")
-                .buildColor("Black")
+                .buildColor("Yellow")
                 .build();
         System.out.println(carAccent);
     }
