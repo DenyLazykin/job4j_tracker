@@ -63,7 +63,7 @@ public class Car {
     }
 }
 
-class CarElantra {
+class CarBuild {
     public static void main(String[] args) {
         Car carElantra = new Car.Builder()
                 .buildBrand("Hyundai")
@@ -73,5 +73,11 @@ class CarElantra {
                 .buildColor("Black")
                 .build();
         System.out.println(carElantra);
+        Car carAccent = new Car.Builder()
+                .buildBrand("Hyundai")
+                .buildModel("Accent")
+                .buildColor("Black")
+                .build();
+        System.out.println(carAccent);
     }
 }
